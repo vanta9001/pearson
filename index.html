@@ -1138,334 +1138,334 @@ NREUM.info = {
             t
           );
         }
-        function y(e, t) {
-          let r = e;
-          for (; 'object' == typeof r && !Object.prototype.hasOwnProperty.call(r, g); ) r = Object.getPrototypeOf(r);
-          for (var n = arguments.length, i = new Array(n > 2 ? n - 2 : 0), o = 2; o < n; o++) i[o - 2] = arguments[o];
-          r && t(r, ...i);
-        }
-        var A = 'fetch-',
-          w = A + 'body-',
-          x = ['arrayBuffer', 'blob', 'json', 'text', 'formData'],
-          E = f._A.Request,
-          _ = f._A.Response,
-          T = 'prototype';
-        const S = {};
-        function D(e) {
-          const t = (function (e) {
-            return (e || n.ee).get('fetch');
-          })(e);
-          if (!(E && _ && f._A.fetch)) return t;
-          if (S[t.debugId]++) return t;
-          function r(e, r, i) {
-            var o = e[r];
-            'function' == typeof o &&
-              (e[r] = function () {
-                var e,
-                  r = [...arguments],
-                  a = {};
-                t.emit(i + 'before-start', [r], a), a[n.A] && a[n.A].dt && (e = a[n.A].dt);
-                var s = o.apply(this, r);
-                return (
-                  t.emit(i + 'start', [r, e], s),
-                  s.then(
-                    function (e) {
-                      return t.emit(i + 'end', [null, e], s), e;
-                    },
-                    function (e) {
-                      throw (t.emit(i + 'end', [e], s), e);
-                    },
-                  )
-                );
-              });
-          }
-          return (
-            (S[t.debugId] = 1),
-            x.forEach(e => {
-              r(E[T], e, w), r(_[T], e, w);
-            }),
-            r(f._A, 'fetch', A),
-            t.on(A + 'end', function (e, r) {
-              var n = this;
-              if (r) {
-                var i = r.headers.get('content-length');
-                null !== i && (n.rxSize = i), t.emit(A + 'done', [null, r], n);
-              } else t.emit(A + 'done', [e], n);
-            }),
-            t
-          );
-        }
-        const j = {},
-          N = ['pushState', 'replaceState'];
-        function C(e) {
-          const t = (function (e) {
-            return (e || n.ee).get('history');
-          })(e);
-          return !f.il || j[t.debugId]++ || ((j[t.debugId] = 1), c(t).inPlace(window.history, N, '-')), t;
-        }
-        var O = r(3239);
-        const P = {},
-          R = ['appendChild', 'insertBefore', 'replaceChild'];
-        function I(e) {
-          const t = (function (e) {
-            return (e || n.ee).get('jsonp');
-          })(e);
-          if (!f.il || P[t.debugId]) return t;
-          P[t.debugId] = !0;
-          var r = c(t),
-            i = /[?&](?:callback|cb)=([^&#]+)/,
-            o = /(.*)\.([^.]+)/,
-            a = /^(\w+)(\.|$)(.*)$/;
-          function s(e, t) {
-            if (!e) return t;
-            const r = e.match(a),
-              n = r[1];
-            return s(r[3], t[n]);
-          }
-          return (
-            r.inPlace(Node.prototype, R, 'dom-'),
-            t.on('dom-start', function (e) {
-              !(function (e) {
-                if (!e || 'string' != typeof e.nodeName || 'script' !== e.nodeName.toLowerCase()) return;
-                if ('function' != typeof e.addEventListener) return;
-                var n = ((a = e.src), (c = a.match(i)), c ? c[1] : null);
-                var a, c;
-                if (!n) return;
-                var u = (function (e) {
-                  var t = e.match(o);
-                  if (t && t.length >= 3) return { key: t[2], parent: s(t[1], window) };
-                  return { key: e, parent: window };
-                })(n);
-                if ('function' != typeof u.parent[u.key]) return;
-                var d = {};
-                function l() {
-                  t.emit('jsonp-end', [], d),
-                    e.removeEventListener('load', l, (0, O.m$)(!1)),
-                    e.removeEventListener('error', f, (0, O.m$)(!1));
-                }
-                function f() {
-                  t.emit('jsonp-error', [], d),
-                    t.emit('jsonp-end', [], d),
-                    e.removeEventListener('load', l, (0, O.m$)(!1)),
-                    e.removeEventListener('error', f, (0, O.m$)(!1));
-                }
-                r.inPlace(u.parent, [u.key], 'cb-', d),
-                  e.addEventListener('load', l, (0, O.m$)(!1)),
-                  e.addEventListener('error', f, (0, O.m$)(!1)),
-                  t.emit('new-jsonp', [e.src], d);
-              })(e[0]);
-            }),
-            t
-          );
-        }
-        const k = {};
-        function H(e) {
-          const t = (function (e) {
-            return (e || n.ee).get('mutation');
-          })(e);
-          if (!f.il || k[t.debugId]) return t;
-          k[t.debugId] = !0;
-          var r = c(t),
-            i = f._A.MutationObserver;
-          return (
-            i &&
-              ((window.MutationObserver = function (e) {
-                return this instanceof i ? new i(r(e, 'fn-')) : i.apply(this, arguments);
-              }),
-              (MutationObserver.prototype = i.prototype)),
-            t
-          );
-        }
-        const z = {};
-        function L(e) {
-          const t = (function (e) {
-            return (e || n.ee).get('promise');
-          })(e);
-          if (z[t.debugId]) return t;
-          z[t.debugId] = !0;
-          var r = t.context,
-            i = c(t),
-            a = f._A.Promise;
-          return (
-            a &&
-              (function () {
-                function e(r) {
-                  var n = t.context(),
-                    o = i(r, 'executor-', n, null, !1);
-                  const s = Reflect.construct(a, [o], e);
-                  return (
-                    (t.context(s).getCtx = function () {
-                      return n;
-                    }),
-                    s
-                  );
-                }
-                (f._A.Promise = e),
-                  Object.defineProperty(e, 'name', { value: 'Promise' }),
-                  (e.toString = function () {
-                    return a.toString();
-                  }),
-                  Object.setPrototypeOf(e, a),
-                  ['all', 'race'].forEach(function (r) {
-                    const n = a[r];
-                    e[r] = function (e) {
-                      let i = !1;
-                      [...(e || [])].forEach(e => {
-                        this.resolve(e).then(a('all' === r), a(!1));
-                      });
-                      const o = n.apply(this, arguments);
-                      return o;
-                      function a(e) {
-                        return function () {
-                          t.emit('propagate', [null, !i], o, !1, !1), (i = i || !e);
-                        };
-                      }
-                    };
-                  }),
-                  ['resolve', 'reject'].forEach(function (r) {
-                    const n = a[r];
-                    e[r] = function (e) {
-                      const r = n.apply(this, arguments);
-                      return e !== r && t.emit('propagate', [e, !0], r, !1, !1), r;
-                    };
-                  }),
-                  (e.prototype = a.prototype);
-                const n = a.prototype.then;
-                (a.prototype.then = function () {
-                  var e = this,
-                    o = r(e);
-                  o.promise = e;
-                  for (var a = arguments.length, s = new Array(a), c = 0; c < a; c++) s[c] = arguments[c];
-                  (s[0] = i(s[0], 'cb-', o, null, !1)), (s[1] = i(s[1], 'cb-', o, null, !1));
-                  const u = n.apply(this, s);
-                  return (o.nextPromise = u), t.emit('propagate', [e, !0], u, !1, !1), u;
-                }),
-                  (a.prototype.then[o] = n),
-                  t.on('executor-start', function (e) {
-                    (e[0] = i(e[0], 'resolve-', this, null, !1)), (e[1] = i(e[1], 'resolve-', this, null, !1));
-                  }),
-                  t.on('executor-err', function (e, t, r) {
-                    e[1](r);
-                  }),
-                  t.on('cb-end', function (e, r, n) {
-                    t.emit('propagate', [n, !0], this.nextPromise, !1, !1);
-                  }),
-                  t.on('propagate', function (e, r, n) {
-                    (this.getCtx && !r) ||
-                      (this.getCtx = function () {
-                        if (e instanceof Promise) var r = t.context(e);
-                        return r && r.getCtx ? r.getCtx() : this;
-                      });
-                  });
-              })(),
-            t
-          );
-        }
-        const M = {},
-          F = 'setTimeout',
-          B = 'setInterval',
-          U = 'clearTimeout',
-          Z = '-start',
-          V = '-',
-          q = [F, 'setImmediate', B, U, 'clearImmediate'];
-        function G(e) {
-          const t = (function (e) {
-            return (e || n.ee).get('timer');
-          })(e);
-          if (M[t.debugId]++) return t;
-          M[t.debugId] = 1;
-          var r = c(t);
-          return (
-            r.inPlace(f._A, q.slice(0, 2), F + V),
-            r.inPlace(f._A, q.slice(2, 3), B + V),
-            r.inPlace(f._A, q.slice(3), U + V),
-            t.on(B + Z, function (e, t, n) {
-              e[0] = r(e[0], 'fn-', null, n);
-            }),
-            t.on(F + Z, function (e, t, n) {
-              (this.method = n), (this.timerDuration = isNaN(e[1]) ? 0 : +e[1]), (e[0] = r(e[0], 'fn-', this, n));
-            }),
-            t
-          );
-        }
-        var W = r(50);
-        const X = {},
-          Q = ['open', 'send'];
-        function K(e) {
-          var t = e || n.ee;
-          const r = (function (e) {
-            return (e || n.ee).get('xhr');
-          })(t);
-          if (X[r.debugId]++) return r;
-          (X[r.debugId] = 1), b(t);
-          var i = c(r),
-            o = f._A.XMLHttpRequest,
-            a = f._A.MutationObserver,
-            s = f._A.Promise,
-            u = f._A.setInterval,
-            d = 'readystatechange',
-            l = ['onload', 'onerror', 'onabort', 'onloadstart', 'onloadend', 'onprogress', 'ontimeout'],
-            h = [],
-            p = (f._A.XMLHttpRequest = function (e) {
-              const t = new o(e),
-                n = r.context(t);
-              try {
-                r.emit('new-xhr', [t], n),
-                  t.addEventListener(
-                    d,
-                    ((a = n),
-                    function () {
-                      var e = this;
-                      e.readyState > 3 && !a.resolved && ((a.resolved = !0), r.emit('xhr-resolved', [], e)),
-                        i.inPlace(e, l, 'fn-', w);
-                    }),
-                    (0, O.m$)(!1),
-                  );
-              } catch (e) {
-                (0, W.Z)('An error occurred while intercepting XHR', e);
-                try {
-                  r.emit('internal-error', [e]);
-                } catch (e) {}
-              }
-              var a;
-              return t;
-            });
-          function g(e, t) {
-            i.inPlace(t, ['onreadystatechange'], 'fn-', w);
-          }
-          if (
-            ((function (e, t) {
-              for (var r in e) t[r] = e[r];
-            })(o, p),
-            (p.prototype = o.prototype),
-            i.inPlace(p.prototype, Q, '-xhr-', w),
-            r.on('send-xhr-start', function (e, t) {
-              g(e, t),
-                (function (e) {
-                  h.push(e), a && (m ? m.then(A) : u ? u(A) : ((v = -v), (y.data = v)));
-                })(t);
-            }),
-            r.on('open-xhr-start', g),
-            a)
-          ) {
-            var m = s && s.resolve();
-            if (!u && !s) {
-              var v = 1,
-                y = document.createTextNode(v);
-              new a(A).observe(y, { characterData: !0 });
+      },
+      function (e) {
+        e.O(0, [774, 179], function () {
+          return e((e.s = 5938));
+        });
+      },
+      (e.m = r),
+    (e.c = {}),
+    (e.d = function (t, r) {
+      for (var n in r)
+        e.o(r, n) &&
+          !e.o(t, n) &&
+          Object.defineProperty(t, n, { enumerable: !0, get: r[n] });
+    }),
+    (e.f = {}),
+    (e.e = function (t) {
+      return Promise.all(
+        Object.keys(e.f).reduce(function (r, n) {
+          return e.f[n](t, r), r;
+        }, [])
+      );
+    }),
+    (e.u = function (t) {
+      return { 111: 'nr-spa', 164: 'nr-spa-compressor', 433: 'nr-spa-recorder' }[t] + '-1.246.1.min.js';
+    }),
+    (e.o = function (e, t) {
+      return Object.prototype.hasOwnProperty.call(e, t);
+    }),
+    (t = {}),
+    (r = 'NRBA-1.246.1.PROD:'),
+    (e.l = function (n, o, a, s) {
+      if (t[n]) t[n].push(o);
+      else {
+        var c, u;
+        if (void 0 !== a)
+          for (var d = document.getElementsByTagName('script'), l = 0; l < d.length; l++) {
+            var f = d[l];
+            if (f.getAttribute('src') == n || f.getAttribute('data-webpack') == r + a) {
+              c = f;
+              break;
             }
-          } else
-            t.on('fn-end', function (e) {
-              (e[0] && e[0].type === d) || A();
+          }
+        c ||
+          ((u = !0),
+          ((c = document.createElement('script')).charset = 'utf-8'),
+          (c.timeout = 120),
+          e.nc && c.setAttribute('nonce', e.nc),
+          c.setAttribute('data-webpack', r + a),
+          (c.src = n)),
+          (t[n] = [o]);
+        var p = (r, n) => {
+            (c.onerror = c.onload = null), clearTimeout(h);
+            var i = t[n];
+            if (
+              (delete t[n],
+              c.parentNode && c.parentNode.removeChild(c),
+              i && i.forEach((e) => e(n)),
+              r)
+            )
+              return r(n);
+          },
+          h = setTimeout(p.bind(null, void 0, { type: 'timeout', target: c }), 12e4);
+        (c.onerror = p.bind(null, c.onerror)), (c.onload = p.bind(null, c.onload)), u && document.head.appendChild(c);
+      }
+    }),
+    (e.r = function (e) {
+      'undefined' != typeof Symbol &&
+        Symbol.toStringTag &&
+        Object.defineProperty(e, Symbol.toStringTag, { value: 'Module' }),
+        Object.defineProperty(e, '__esModule', { value: !0 });
+    }),
+    (e.p = 'https://js-agent.newrelic.com/'),
+    (() => {
+      var e = { 801: 0, 92: 0 };
+      e.f.j = (t, r) => {
+        var n = e.o(t) ? e[t] : void 0;
+        if (0 !== n)
+          if (n) r.push(n[2]);
+          else {
+            var o = new Promise((r, e) => (n = e[t] = [r, e]));
+            r.push((n[2] = o));
+            var a = e.p + e.u(t),
+              s = new Error();
+            e.l(
+              a,
+              (r) => {
+                if (e.o(t) && (0 !== (n = e[t]) && (e[t] = void 0), n)) {
+                  var o = r && ('load' === r.type ? 'missing' : r.type),
+                    a = r && r.target && r.target.src;
+                  (s.message = 'Loading chunk ' + t + ' failed.\n(' + o + ': ' + a + ')'),
+                    (s.name = 'ChunkLoadError'),
+                    (s.type = o),
+                    (s.request = a),
+                    n[1](s);
+                }
+              },
+              'chunk-' + t,
+              t
+            );
+          }
+      };
+      var t = (t, r) => {
+          var n,
+            o,
+            [a, s, c] = r,
+            u = 0;
+          if (a.some((t) => 0 !== e[t])) {
+            for (n in s) e.o(s, n) && (e.m[n] = s[n]);
+            if (c) c(e);
+          }
+          for (t && t(r); u < a.length; u++) (o = a[u]), e.o(e, o) && e[o] && e[o][0](), (e[o] = 0);
+        },
+        r = (self['webpackChunk:NRBA-1.246.1.PROD'] = self['webpackChunk:NRBA-1.246.1.PROD'] || []);
+      r.forEach(t.bind(null, 0)), (r.push = t.bind(null, r.push.bind(r)));
+    })(),
+    (() => {
+      var e = i(50);
+      class t {
+        addPageAction(t, r) {
+          (0, e.Z)('Call to agent api addPageAction failed. The page action feature is not currently initialized.');
+        }
+        setPageViewName(t, r) {
+          (0, e.Z)('Call to agent api setPageViewName failed. The page view feature is not currently initialized.');
+        }
+        setCustomAttribute(t, r, n) {
+          (0, e.Z)('Call to agent api setCustomAttribute failed. The js errors feature is not currently initialized.');
+        }
+        noticeError(t, r) {
+          (0, e.Z)('Call to agent api noticeError failed. The js errors feature is not currently initialized.');
+        }
+        setUserId(t) {
+          (0, e.Z)('Call to agent api setUserId failed. The js errors feature is not currently initialized.');
+        }
+        setApplicationVersion(t) {
+          (0, e.Z)('Call to agent api setApplicationVersion failed. The agent is not currently initialized.');
+        }
+        setErrorHandler(t) {
+          (0, e.Z)('Call to agent api setErrorHandler failed. The js errors feature is not currently initialized.');
+        }
+        finished(t) {
+          (0, e.Z)('Call to agent api finished failed. The page action feature is not currently initialized.');
+        }
+        addRelease(t, r) {
+          (0, e.Z)('Call to agent api addRelease failed. The js errors feature is not currently initialized.');
+        }
+        start(t) {
+          (0, e.Z)('Call to agent api addRelease failed. The agent is not currently initialized.');
+        }
+      }
+      var r = i(3325),
+        n = i(234);
+      const o = Object.values(r.D);
+      function a(e) {
+        const t = {};
+        return (
+          o.forEach(r => {
+            t[r] = (function (e, t) {
+              return !1 !== (0, n.Mt)(t, ''.concat(e, '.enabled'));
+            })(r, e);
+          }),
+          t
+        );
+      }
+      var s = i(7530);
+      var c = i(8e3),
+        u = i(5938),
+        d = i(3960),
+        l = i(385);
+      class f extends u.W {
+        constructor(e, t, r) {
+          let i = !(arguments.length > 3 && void 0 !== arguments[3]) || arguments[3];
+          super(e, t, r),
+            (this.auto = i),
+            (this.abortHandler = void 0),
+            (this.featAggregate = void 0),
+            (this.onAggregateImported = void 0),
+            !1 === (0, n.Mt)(this.agentIdentifier, ''.concat(this.featureName, '.autoStart')) && (this.auto = !1),
+            this.auto && (0, c.R)(e, r);
+        }
+        importAggregator() {
+          let t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
+          if (this.featAggregate) return;
+          if (!this.auto)
+            return void this.ee.on(''.concat(this.featureName, '-opt-in'), () => {
+              (0, c.R)(this.agentIdentifier, this.featureName), (this.auto = !0), this.importAggregator();
             });
-          function A() {
-            for (var e = 0; e < h.length; e++) g(0, h[e]);
-            h.length && (h = []);
-          }
-          function w(e, t) {
-            return t;
-          }
-          return r;
+          const r = l.il && !0 === (0, n.Mt)(this.agentIdentifier, 'privacy.cookies_enabled');
+          let o;
+          this.onAggregateImported = new Promise(e => {
+            o = e;
+          });
+          const a = async () => {
+            let n;
+            try {
+              if (r) {
+                const { setupAgentSession: e } = await i.e(111).then(i.bind(i, 3228));
+                n = e(this.agentIdentifier);
+              }
+            } catch (t) {
+              (0, e.Z)(
+                'A problem occurred when starting up session manager. This page will not start or extend any session.',
+                t,
+              );
+            }
+            try {
+              if (!this.shouldImportAgg(this.featureName, n))
+                return (0, c.L)(this.agentIdentifier, this.featureName), void o(!1);
+              const { lazyFeatureLoader: e } = await i.e(111).then(i.bind(i, 8582)),
+                { Aggregate: r } = await e(this.featureName, 'aggregate');
+              (this.featAggregate = new r(this.agentIdentifier, this.aggregator, t)), o(!0);
+            } catch (t) {
+              (0, e.Z)('Downloading and initializing '.concat(this.featureName, ' failed...'), t),
+                this.abortHandler?.(),
+                (0, c.L)(this.agentIdentifier, this.featureName),
+                o(!1);
+            }
+          };
+          l.il ? (0, d.b)(() => a(), !0) : a();
+        }
+        shouldImportAgg(e, t) {
+          return (
+            e !== r.D.sessionReplay ||
+            (!!n.Yu.MO &&
+              !1 !== (0, n.Mt)(this.agentIdentifier, 'session_trace.enabled') &&
+              (!!t?.isNew || !!t?.state.sessionReplayMode))
+          );
+        }
+      }
+      var h = i(7633);
+      class p extends f {
+        static featureName = h.t;
+        constructor(e, t) {
+          let r = !(arguments.length > 2 && void 0 !== arguments[2]) || arguments[2];
+          super(e, t, h.t, r), this.importAggregator();
+        }
+      }
+      var g = i(1117),
+        m = i(1284);
+      class v extends g.w {
+        constructor(e) {
+          super(e), (this.aggregatedData = {});
+        }
+        store(e, t, r, n, i) {
+          var o = this.getBucket(e, t, r, i);
+          return (
+            (o.metrics = (function (e, t) {
+              t || (t = { count: 0 });
+              return (
+                (t.count += 1),
+                (0, m.D)(e, function (e, r) {
+                  t[e] = b(r, t[e]);
+                }),
+                t
+              );
+            })(n, o.metrics)),
+            o
+          );
+        }
+        merge(e, t, r, n, i) {
+          var o = this.getBucket(e, t, n, i);
+          if (o.metrics) {
+            var a = o.metrics;
+            (a.count += r.count),
+              (0, m.D)(r, function (e, t) {
+                if ('count' !== e) {
+                  var n = a[e],
+                    i = r[e];
+                  i && !i.c
+                    ? (a[e] = b(i.t, n))
+                    : (a[e] = (function (e, t) {
+                        if (!t) return e;
+                        t.c || (t = y(t.t));
+                        return (
+                          (t.min = Math.min(e.min, t.min)),
+                          (t.max = Math.max(e.max, t.max)),
+                          (t.t += e.t),
+                          (t.sos += e.sos),
+                          (t.c += e.c),
+                          t
+                        );
+                      })(i, a[e]));
+                }
+              });
+          } else o.metrics = r;
+        }
+        storeMetric(e, t, r, n) {
+          var i = this.getBucket(e, t, r);
+          return (i.stats = b(n, i.stats)), i;
+        }
+        getBucket(e, t, r, n) {
+          this.aggregatedData[e] || (this.aggregatedData[e] = {});
+          var i = this.aggregatedData[e][t];
+          return i || ((i = this.aggregatedData[e][t] = { params: r || {} }), n && (i.custom = n)), i;
+        }
+        get(e, t) {
+          return t ? this.aggregatedData[e] && this.aggregatedData[e][t] : this.aggregatedData[e];
+        }
+        take(e) {
+          for (var t = {}, r = '', n = !1, i = 0; i < e.length; i++)
+            (t[(r = e[i])] = A(this.aggregatedData[r])), t[r].length && (n = !0), delete this.aggregatedData[r];
+          return n ? t : null;
+        }
+      }
+      function b(e, t) {
+        return null == e
+          ? (function (e) {
+              e ? e.c++ : (e = { c: 1 });
+              return e;
+            })(t)
+          : t
+          ? (t.c || (t = y(t.t)),
+            (t.c += 1),
+            (t.t += e),
+            (t.sos += e * e),
+            e > t.max && (t.max = e),
+            e < t.min && (t.min = e),
+            t)
+          : { t: e };
+      }
+      function y(e) {
+        return { t: e, min: e, max: e, sos: e * e, c: 1 };
+      }
+      function A(e) {
+        return 'object' != typeof e ? [] : (0, m.D)(e, w);
+      }
+      function w(e, t) {
+        return t;
+      }
         }
       },
       7825: (e, t, r) => {
