@@ -1,0 +1,48 @@
+.ui-widget-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:#333;opacity:.75;z-index:9999 !important}
+.youtube-video{display:flex;justify-content:center;border:unset;outline-width:1px;outline-style:solid;outline-color:#999;position:relative;width:100%;height:0;overflow:hidden;padding-bottom:60%;margin-bottom:15px}
+@media screen and (min-width:768px){.youtube-video{margin-bottom:30px}
+}
+.youtube-video-iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+.youtube-video-wrapper{position:absolute;width:100%;height:100%;display:block;cursor:pointer;border:0;background:0}
+.youtube-video-play-button{position:absolute;width:100%;height:100%;padding:0;cursor:pointer;border:0;background:0;display:flex;flex-direction:column;justify-content:center}
+.youtube-video-img{width:100%;height:100%}
+.youtube-video-play-img{position:absolute;width:85px;height:59px;top:calc(-30px - -50%);left:calc(-43px - -50%);z-index:0;display:block;background-image:url("../images/youtube-play-icon.png")}
+.youtube-video-modal-container{border:none !important;background:white;padding:0 !important;border-radius:0 !important;margin:0 !important;overflow:inherit !important;z-index:10000 !important}
+@media screen and (min-width:768px){.youtube-video-modal-container{width:700px !important;height:435px !important}
+}
+@media screen and (min-width:992px){.youtube-video-modal-container{width:914px !important;height:555px !important}
+}
+.youtube-video-modal{width:100% !important;height:100% !important;padding:0 !important;overflow:hidden !important}
+.youtube-video-cross-icon{position:absolute;top:0;right:0;font-size:26px !important;color:#000;float:right;margin-right:20px;margin-top:5px;cursor:pointer;width:40px;border:0;background:0;z-index:10001}
+.youtube-video-container{position:relative;width:100%;margin-top:48px;clear:both}
+@media screen and (min-width:768px){.youtube-video-container{height:360px}
+}
+@media screen and (min-width:992px){.youtube-video-container{height:480px}
+}
+.youtube-video-container>.youtube-video-iframe{position:relative;display:block;border:2px solid #fff;margin:0 auto}
+@media screen and (min-width:768px){.youtube-video-container>.youtube-video-iframe{width:640px;height:360px}
+}
+@media screen and (min-width:992px){.youtube-video-container>.youtube-video-iframe{width:854px;height:480px}
+}
+*:not([role="dialog"]) .youtube-video-modal{display:none}
+.youtube-video-container:not([tabindex]){position:static}
+.youtube-video{container:yt-video-wrapper/size}
+.youtube-video-inline-img{position:absolute;width:100%;height:100%;object-fit:cover}
+.background-img-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background-color:rgba(0,0,0,0.5)}
+.yt-overlay{--yt-space-unit:4;--yt-pad-y:clamp(calc((3 * var(--yt-space-unit)) * 1px),calc((1 * var(--yt-space-unit)) * 1%),calc((6 * var(--yt-space-unit)) * 1px));--yt-pad-x:clamp(calc((3 * var(--yt-space-unit)) * 1px),calc((3 * var(--yt-space-unit)) * .625cqw),calc((20 * var(--yt-space-unit)) * 1px));display:flex;align-items:center;gap:clamp(calc((4 * var(--yt-space-unit)) * 1px),calc((1.125 * var(--yt-space-unit)) * 1%),calc((7 * var(--yt-space-unit)) * 1px));width:100%;max-height:clamp(100%,calc((15 * var(--yt-space-unit)) * 1cqh),calc((43 * var(--yt-space-unit)) * 1px));padding:var(--yt-pad-y) var(--yt-pad-x);background-color:rgba(255,255,255,1.0);position:absolute;bottom:0;& .overlay-text-wrapper{display:inline-flex;flex:1 1 auto;flex-direction:column;row-gap:calc((1 * var(--yt-space-unit)) * 1px);overflow-y:hidden;max-height:calc((27 * var(--yt-space-unit)) * 1px)}
+& .overlay-text{line-height:1.5;word-break:break-word;hyphens:auto;overflow-y:auto;padding-inline-end:.5em}
+& .overlay-header{font-weight:bold;margin-block-end:unset}
+& .overlayButton.overlayButton{display:inline-flex;flex:1 1 16.667%;justify-content:center;text-align:center;width:100%;min-width:max-content;margin:auto !important}
+}
+@container yt-video-wrapper/*! */(max-width:260px){.overlay-header{display:none}
+.yt-overlay.yt-overlay{padding:calc((3 * var(--yt-space-unit)) * 1px)}
+}
+@container yt-video-wrapper/*! */(min-width:261px){.overlay-header{display:block}
+}
+@container yt-video-wrapper/*! */(max-width:629px){.yt-overlay{flex-direction:column}
+}
+@container yt-video-wrapper/*! */(min-width:630px){.yt-overlay{flex-direction:row}
+}
+@container yt-video-wrapper/*! */(min-width:1441px){.yt-overlay{& .overlayButton.overlayButton{max-width:max-content}
+}
+}

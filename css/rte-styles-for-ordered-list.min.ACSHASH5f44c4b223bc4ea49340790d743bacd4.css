@@ -1,0 +1,4 @@
+ol:has(>li>span[class*=lowercase-alpha-for-ordered-list]){list-style-type:lower-alpha}
+ol:has(>li>span[class*=uppercase-alpha-for-ordered-list]){list-style-type:upper-alpha}
+ol:has(>li>span[class*=lowercase-roman-for-ordered-list]){list-style-type:lower-roman}
+ol:has(>li>span[class*=uppercase-roman-for-ordered-list]){list-style-type:upper-roman}

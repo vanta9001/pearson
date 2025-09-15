@@ -1,0 +1,45 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="icon-sprite" class="icon-sprite">
+  <defs>
+    <style>
+      svg .icon-sprite { display: none; }
+      svg .icon-sprite:target { display: inline; } 
+    </style>
+  </defs>
+
+  <!-- Anchor -->
+  <svg viewBox="0 0 35 35" id="icon-anchor" class="icon-sprite icon-anchor"><circle cx="17.5" cy="17.5" r="17.5" style="fill:#fff"/><path d="M17 21.6V10c0-.6.4-1 1-1s1 .4 1 1v11.6l3.3-3.3c.4-.4 1-.4 1.4 0 .4.4.4 1 0 1.4l-5 5c-.4.4-1 .4-1.4 0l-5-5c-.4-.4-.4-1 0-1.4.4-.4 1-.4 1.4 0l3.3 3.3Z" style="fill:#060609;fill-rule:evenodd"/></svg>
+
+  <!-- Anchor (hover) -->
+  <svg viewBox="0 0 35 35" id="icon-anchor-hover" class="icon-sprite icon-anchor-hover"><circle cx="17.5" cy="17.5" r="17.5" style="fill:#d6d5fb"/><path d="M17 21.6V10c0-.6.4-1 1-1s1 .4 1 1v11.6l3.3-3.3c.4-.4 1-.4 1.4 0 .4.4.4 1 0 1.4l-5 5c-.4.4-1 .4-1.4 0l-5-5c-.4-.4-.4-1 0-1.4.4-.4 1-.4 1.4 0l3.3 3.3Z" style="fill:#060609;fill-rule:evenodd"/></svg>
+
+  <!-- Anchor (inverse) -->
+  <svg viewBox="0 0 35 35" id="icon-anchor-inverse" class="icon-sprite icon-anchor-inverse"><circle cx="17.5" cy="17.5" r="17.5" style="fill:#0d004d"/><path d="M17 21.6V10c0-.6.4-1 1-1s1 .4 1 1v11.6l3.3-3.3c.4-.4 1-.4 1.4 0 .4.4.4 1 0 1.4l-5 5c-.4.4-1 .4-1.4 0l-5-5c-.4-.4-.4-1 0-1.4.4-.4 1-.4 1.4 0l3.3 3.3Z" style="fill:#fcfcfe;fill-rule:evenodd"/></svg>
+
+    <!-- Anchor (inverse | hover) -->
+  <svg viewBox="0 0 35 35" id="icon-anchor-inverse-hover" class="icon-sprite icon-anchor-inverse-hover"><circle cx="17.5" cy="17.5" r="17.5" style="fill:#656270"/><path d="M17 21.6V10c0-.6.4-1 1-1s1 .4 1 1v11.6l3.3-3.3c.4-.4 1-.4 1.4 0 .4.4.4 1 0 1.4l-5 5c-.4.4-1 .4-1.4 0l-5-5c-.4-.4-.4-1 0-1.4.4-.4 1-.4 1.4 0l3.3 3.3Z" style="fill:#fcfcfe;fill-rule:evenodd"/></svg>
+
+  <!-- Link -->
+  <svg viewBox="0 0 35 35" id="icon-link" class="icon-sprite icon-link"><circle cx="17.5" cy="17.5" r="17.5" style="fill:#fff"/><path d="M21.6 18H10c-.6 0-1-.4-1-1s.4-1 1-1h11.6l-3.3-3.3c-.4-.4-.4-1 0-1.4.4-.4 1-.4 1.4 0l5 5c.4.4.4 1 0 1.4l-5 5c-.4.4-1 .4-1.4 0-.4-.4-.4-1 0-1.4l3.3-3.3Z" style="fill:#0d004d;fill-rule:evenodd"/></svg>
+
+  <!-- Link (hover) -->
+  <svg viewBox="0 0 35 35" id="icon-link-hover" class="icon-sprite icon-link-hover"><circle cx="17.5" cy="17.5" r="17.5" style="fill:#d6d5fb"/><path d="M21.6 18H10c-.6 0-1-.4-1-1s.4-1 1-1h11.6l-3.3-3.3c-.4-.4-.4-1 0-1.4.4-.4 1-.4 1.4 0l5 5c.4.4.4 1 0 1.4l-5 5c-.4.4-1 .4-1.4 0-.4-.4-.4-1 0-1.4l3.3-3.3Z" style="fill:#060609;fill-rule:evenodd"/></svg>
+
+  <!-- Link (inverse) -->
+  <svg viewBox="0 0 35 35" id="icon-link-inverse" class="icon-sprite icon-link-inverse"><circle cx="17.5" cy="17.5" r="17.5" style="fill:#0d004d"/><path d="M21.6 18H10c-.6 0-1-.4-1-1s.4-1 1-1h11.6l-3.3-3.3c-.4-.4-.4-1 0-1.4.4-.4 1-.4 1.4 0l5 5c.4.4.4 1 0 1.4l-5 5c-.4.4-1 .4-1.4 0-.4-.4-.4-1 0-1.4l3.3-3.3Z" style="fill:#fff;fill-rule:evenodd"/></svg>
+
+  <!-- Link (inverse | hover) -->
+  <svg viewBox="0 0 35 35" id="icon-link-inverse-hover" class="icon-sprite icon-link-inverse-hover"><circle cx="17.5" cy="17.5" r="17.5" style="fill:#656270"/><path d="M21.6 18H10c-.6 0-1-.4-1-1s.4-1 1-1h11.6l-3.3-3.3c-.4-.4-.4-1 0-1.4.4-.4 1-.4 1.4 0l5 5c.4.4.4 1 0 1.4l-5 5c-.4.4-1 .4-1.4 0-.4-.4-.4-1 0-1.4l3.3-3.3Z" style="fill:#fcfcfe;fill-rule:evenodd"/></svg>
+
+  <!-- Modal -->
+  <svg viewBox="0 0 35 35" id="icon-modal" class="icon-sprite icon-modal"><circle cx="17.5" cy="17.5" r="17.5" style="fill:#fff"/><path d="M16.5 16.5V8.7c0-.6.5-1 1-1s1 .5 1 1v7.8h7.8c.6 0 1 .5 1 1s-.5 1-1 1h-7.8v7.8c0 .6-.5 1-1 1s-1-.5-1-1v-7.8H8.7c-.6 0-1-.5-1-1s.5-1 1-1h7.8Z" style="fill:#0d004d;fill-rule:evenodd"/></svg>
+
+  <!-- Modal (hover) -->
+  <svg viewBox="0 0 35 35" id="icon-modal-hover" class="icon-sprite icon-modal-hover"><circle cx="17.5" cy="17.5" r="17.5" style="fill:#d6d5fb"/><path d="M16.5 16.5V8.7c0-.6.5-1 1-1s1 .5 1 1v7.8h7.8c.6 0 1 .5 1 1s-.5 1-1 1h-7.8v7.8c0 .6-.5 1-1 1s-1-.5-1-1v-7.8H8.7c-.6 0-1-.5-1-1s.5-1 1-1h7.8Z" style="fill:#060609;fill-rule:evenodd"/></svg>
+
+  <!-- Modal (inverse) -->
+  <svg viewBox="0 0 35 35" id="icon-modal-inverse" class="icon-sprite icon-modal-inverse"><circle cx="17.5" cy="17.5" r="17.5" style="fill:#0d004d"/><path d="M16.5 16.5V8.7c0-.6.5-1 1-1s1 .5 1 1v7.8h7.8c.6 0 1 .5 1 1s-.5 1-1 1h-7.8v7.8c0 .6-.5 1-1 1s-1-.5-1-1v-7.8H8.7c-.6 0-1-.5-1-1s.5-1 1-1h7.8Z" style="fill:#fff;fill-rule:evenodd"/></svg>
+
+  <!-- Modal (inverse | hover) -->
+  <svg viewBox="0 0 35 35" id="icon-modal-inverse-hover" class="icon-sprite icon-modal-inverse-hover"><circle cx="17.5" cy="17.5" r="17.5" style="fill:#656270"/><path d="M16.5 16.5V8.7c0-.6.5-1 1-1s1 .5 1 1v7.8h7.8c.6 0 1 .5 1 1s-.5 1-1 1h-7.8v7.8c0 .6-.5 1-1 1s-1-.5-1-1v-7.8H8.7c-.6 0-1-.5-1-1s.5-1 1-1h7.8Z" style="fill:#fcfcfe;fill-rule:evenodd"/></svg>
+
+</svg>
